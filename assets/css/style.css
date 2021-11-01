@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+/* Variables */
+:root {
+    --Dark-Blue: hsl(209, 23%, 22%); /* Dark Mode Elements */
+    --Very-Dark-Blue: hsl(207, 26%, 17%); /* Dark Mode Background */
+
+    --White: hsl(0, 0%, 100%); /* Dark Mode Text & Light Mode Elements */
+    --Very-Dark-Blue: hsl(200, 15%, 8%); /* Light Mode Text */
+    --Dark-Gray: hsl(0, 0%, 52%); /* Light Mode Input */
+    --Very-Light-Gray: hsl(0, 0%, 98%); /* Light Mode Background */
+}
+
+:root {
+    --body-font: 'Nunito Sans', sans-serif;
+    --homepage-items: 14px;
+    --detail-page: 16px;
+}
+/*========== Variables Dark theme ==========*/
+body.dark-theme {
+    --Very-Light-Gray: hsl(207, 26%, 17%);
+    --Very-Dark-Blue: hsl(0, 0%, 100%);
+    --White: var(--Dark-Blue);
+    --Dark-Gray: hsl(0, 0%, 100%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--homepage-items);
+    background-color: var(--Very-Light-Gray);
+    color: var(--Very-Dark-Blue);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--Very-Dark-Blue);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===ALL=== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ===HEADER=== */
+.l-header {
+    background-color: var(--White);
+    box-shadow: 0 1px 4px rgb(133, 133, 133, 0.2);
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav__logo {
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.nav__btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.theme__icon {
+    font-size: 1.2rem;
+}
+
+.dark-theme .theme__icon {
+    color: var(--Dark-Gray);
+}
+
+.theme__text {
+    font-size: var(--homepage-items);
+    color: var(--Very-Dark-Blue);
+}
+
+/* ===SEARCH OPTIONS=== */
+.search__options {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.container__search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    width: 100%;
+    padding: 1rem;
+    padding-left: 4rem;
+    border: none;
+    outline: none;
+    background-color: var(--White);
+    font-family: var(--body-font);
+    font-size: var(--homepage-items);
+    font-weight: 600;
+    color: var(--Very-Dark-Blue);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgb(133, 133, 133, 0.2);
+}
+
+.search::placeholder {
+    color: var(--Dark-Gray);
+}
+
+.search__icon {
+    position: absolute;
+    left: 1.5rem;
+    font-size: 1.3rem;
+    color: var(--Dark-Gray);
+}
+
+/* ===DROPDOWN=== */
+.dropdown {
+    position: relative;
+    width: 230px;
+    background-color: var(--White);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgb(133, 133, 133, 0.12);
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown__list {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 4rem;
+    background-color: var(--White);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgb(133, 133, 133, 0.12);
+    display: none;
+    padding-left: 1rem;
+}
+
+.open-dropdown {
+    display: block;
+}
+
+.dropdown__item {
+    padding: 0.5rem;
+}
+
+.dropdown__icon {
+    font-size: 1.3rem;
+}
+
+/* ===CARD=== */
+.countries {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem 1rem;
+    justify-items: center;
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    background-color: var(--White);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.card__header img {
+    object-fit: cover;
+    width: 300px;
+    height: 200px;
+}
+
+.card__info {
+    padding: 1.5rem 1rem;
+    font-size: var(--detail-page);
+}
+
+.card__item {
+    margin-bottom: 0.4rem;
+}
+
+.card__title {
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.card__description {
+    font-weight: 600;
+}
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 768px) {
+    .search__options {
+        flex-direction: row;
+    }
+    .container__search {
+        flex: 1;
+    }
+    .search {
+        max-width: 550px;
+    }
+
+    .countries {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .card {
+        width: 250px;
+    }
+}

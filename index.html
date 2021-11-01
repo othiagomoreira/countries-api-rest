@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- ====BOX-ICONS=== -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Countries API</title>
+</head>
+
+<body>
+    <!-- ===HEADER=== -->
+    <header class="l-header">
+        <nav class="container nav">
+            <h1 class="nav__logo">Where in the world?</h1>
+
+            <button class="nav__btn" id="toggle">
+                <i class='bx bxs-moon theme__icon'></i>
+                <span class="theme__text">Dark Mode</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="search__options">
+            <div class="container__search">
+                <input id="search" class="search" type="text" placeholder="Search for a country...">
+                <i class='bx bx-search-alt-2  search__icon'></i>
+            </div>
+
+            <div class="dropdown" id="filter">
+                Filter by Region
+                <i class='bx bx-chevron-down dropdown__icon'></i>
+                <ul class="dropdown__list">
+                    <li class="dropdown__item">All</li>
+                    <li class="dropdown__item">Africa</li>
+                    <li class="dropdown__item">America</li>
+                    <li class="dropdown__item">Asia</li>
+                    <li class="dropdown__item">Europe</li>
+                    <li class="dropdown__item">Oceania</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="countries" id="countries">
+            <h3>Loading Countries...</h3>
+        </div>
+    </main>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
