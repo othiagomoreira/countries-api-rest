@@ -243,6 +243,7 @@ img {
 .modal__image {
     width: 90%;
     max-width: 500px;
+    max-height: 300px;
     margin: 0 auto;
 }
 

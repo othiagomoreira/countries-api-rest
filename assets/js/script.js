@@ -38,7 +38,7 @@ function displayCountries(countries) {
                 <ul class="card__list">
                     <li class="card__item">
                         <span class="card__description">Population:</span>
-                        ${country.population}
+                        ${country.population.toLocaleString('en-US')}
                     </li>
                     <li class="card__item country-region">
                         <span class="card__description">Region:</span>
@@ -77,7 +77,9 @@ function showCountryDetails(country) {
                 </li>
 
                 <li class="modal__item">Population:
-                    <span class="modal__span">${country.population}</span>
+                    <span class="modal__span">${country.population.toLocaleString(
+                        'en-US'
+                    )}</span>
                 </li>
 
                 <li class="modal__item">Region:
