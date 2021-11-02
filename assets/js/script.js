@@ -8,6 +8,8 @@ const toggleBtn = document.querySelector('#toggle');
 const searchEl = document.querySelector('#search');
 const filterBtn = document.querySelector('#filter');
 const regionFilters = filterBtn.querySelectorAll('.dropdown__item');
+const modal = document.querySelector('#modal');
+const closeBtn = document.querySelector('#close');
 
 // API CALL
 // Pega o array com todos os paises que retorna da API e as exibi com a function displayCountries
@@ -49,8 +51,67 @@ function displayCountries(countries) {
                 </ul>
             </div>`;
 
-        countriesEl.append(countryEl); // Exibi todo o conteudo do elemento com a class card dentro do elemento countriesEl
+        countryEl.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            showCountryDetails(country); // Preenche as informações no modal
+        });
+
+        countriesEl.append(countryEl);
     });
+}
+
+// Responsavel por preencher as informaçoes sobre cada pais dentro do modal
+function showCountryDetails(country) {
+    const modalDescription = document.querySelector('.modal__description');
+    const modalImg = document.querySelector('.modal__image');
+
+    modalImg.setAttribute('src', country.flag);
+
+    modalDescription.innerHTML = `
+        <h2 class="modal__title">${country.name}</h2>
+
+        <div class="modal__info">
+            <ul class="modal__list">
+                <li class="modal__item">Native Name:
+                    <span class="modal__span">${country.nativeName}</span>
+                </li>
+
+                <li class="modal__item">Population:
+                    <span class="modal__span">${country.population}</span>
+                </li>
+
+                <li class="modal__item">Region:
+                    <span class="modal__span">${country.region}</span>
+                </li>
+
+                <li class="modal__item">Sub Region:
+                    <span class="modal__span">${country.subregion}</span>
+                </li>
+
+                <li class="modal__item">Capital:
+                    <span class="modal__span">${country.capital}</span>
+                </li>
+            </ul>
+
+            <ul class="modal__list">
+                <li class="modal__item">Top Level Domain:
+                    <span class="modal__span">${country.topLevelDomain}</span>
+                </li>
+
+                <li class="modal__item">Currencies:
+                    <span class="modal__span">${country.currencies.map(
+                        (currency) => currency.code
+                    )}</span>
+                </li>
+
+                <li class="modal__item">Languages
+                    <span class="modal__span">${country.languages.map(
+                        (language) => language.name
+                    )}</span>
+                </li>
+            </ul>
+        </div>
+    `;
 }
 
 // Seleciona entre o tema Dark/Light
@@ -78,6 +139,11 @@ filterBtn.addEventListener('click', () => {
     const menuDrop = document.querySelector('.dropdown__list');
 
     menuDrop.classList.toggle('open-dropdown');
+});
+
+// Fecha o modal
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
 });
 
 // Seleciona os Paises com base no que foi digitado no input
